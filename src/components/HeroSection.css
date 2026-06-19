@@ -148,6 +148,180 @@
   accent-color: var(--purple);
 }
 
+.ws-clove-wrap {
+  padding: 0 24px 40px;
+}
+.ws-clove {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--blue-pale);
+  border-radius: 16px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.ws-clove p {
+  font-size: 19px;
+  font-weight: 700;
+  max-width: 560px;
+  line-height: 1.35;
+}
+.ws-clove-right {
+  text-align: center;
+}
+.ws-clove-logo {
+  background: #3b2317;
+  color: #e0913d;
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-size: 22px;
+  padding: 10px 22px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+.ws-clove-logo small {
+  display: block;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.ws-clove-find {
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 8px;
+  display: block;
+}
+
+/* ---------- Marquee ---------- */
+.ws-marquee-wrap {
+  background: linear-gradient(90deg, #bfe8cb 0%, #c2daf1 100%);
+  overflow: hidden;
+  padding: 14px 0;
+}
+.ws-marquee-track {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: ws-scroll 22s linear infinite;
+}
+.ws-marquee-track span {
+  font-size: 14px;
+}
+.ws-marquee-track b {
+  font-weight: 700;
+}
+@keyframes ws-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ws-dream {
+  background: var(--blue-pale);
+}
+.ws-dream .ws-inner {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.ws-dream-text {
+  flex: 1 1 380px;
+}
+.ws-dream-text h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.ws-dream-text p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  max-width: 480px;
+}
+.ws-price-card {
+  flex: 1 1 360px;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px 28px;
+  box-shadow: 0 4px 24px rgba(20, 20, 40, 0.06);
+  position: relative;
+}
+.ws-price-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.ws-price-old {
+  color: var(--gray-light);
+  text-decoration: line-through;
+  font-size: 14px;
+}
+.ws-price-row {
+  font-size: 14px;
+  color: var(--gray);
+  margin: 4px 0 2px;
+}
+.ws-price-row .now {
+  color: var(--purple);
+  font-weight: 800;
+  font-size: 22px;
+  margin-left: 4px;
+}
+.ws-price-tax {
+  font-size: 12px;
+  color: var(--gray-light);
+  margin-bottom: 16px;
+}
+.ws-aligner-graphic {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  width: 64px;
+  height: 44px;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  background: linear-gradient(160deg, #8b5cf6, #5b21b6);
+  box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.25);
+}
+.ws-price-feat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  margin-bottom: 8px;
+}
+.ws-check-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.ws-learn-more {
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
 @media (max-width: 620px) {
   .hero-top {
     padding: 32px 20px;
