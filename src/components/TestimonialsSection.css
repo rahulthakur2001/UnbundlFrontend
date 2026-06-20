@@ -1,0 +1,44 @@
+.ws-happy {
+  background: var(--dark-bg);
+  padding: 70px 0;
+}
+
+.ws-happy h2 {
+  color: #9b9ba3;
+  margin-bottom: 32px;
+}
+
+.ws-happy-scroll {
+  overflow-x: auto;
+  padding: 4px 32px 18px;
+  scrollbar-width: none;
+}
+
+.ws-happy-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.ws-happy-scroll img {
+  display: block;
+  height: 330px;
+  width: auto;
+  max-width: none;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+@media (max-width: 900px) {
+  .ws-happy-scroll img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ws-happy-scroll {
+    padding: 4px 16px 18px;
+  }
+  .ws-happy-scroll img {
+    height: 220px;
+    margin: 0;
+  }
+}

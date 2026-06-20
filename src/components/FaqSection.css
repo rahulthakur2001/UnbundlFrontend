@@ -68,33 +68,14 @@
   padding: 0 28px 16px 4px;
 }
 
-/* Loading skeleton */
-.faq-skeleton-line {
-  height: 16px;
-  width: 60%;
-  margin: 16px 4px;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #e9e6f2 25%, #f4f2fa 37%, #e9e6f2 63%);
-  background-size: 400% 100%;
-  animation: faq-shimmer 1.4s ease infinite;
-}
-
-@keyframes faq-shimmer {
-  0% {
-    background-position: 100% 50%;
+@media (max-width: 620px) {
+  .faq {
+    padding: 48px 20px;
   }
-  100% {
-    background-position: 0 50%;
+  .faq-heading {
+    font-size: 24px;
   }
-}
-
-/* Error state */
-.faq-error {
-  background: #fdeeee;
-  border: 1px solid #f3c8c8;
-  border-radius: 10px;
-  padding: 24px;
-  text-align: center;
-  color: var(--red);
-  font-size: 14px;
+  .faq-question {
+    font-size: 14.5px;
+  }
 }

@@ -285,13 +285,12 @@
 }
 .ws-aligner-graphic {
   position: absolute;
-  top: 24px;
-  right: 26px;
-  width: 64px;
-  height: 44px;
-  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
-  background: linear-gradient(160deg, #8b5cf6, #5b21b6);
-  box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.25);
+  top: 20px;
+  right: 22px;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(20, 20, 40, 0.18));
 }
 .ws-price-feat {
   display: flex;
@@ -322,11 +321,65 @@
   margin-top: 8px;
 }
 
+@media (max-width: 900px) {
+  .hero-top {
+    padding: 40px 28px 32px;
+  }
+  .ws-clove {
+    padding: 24px 28px;
+    text-align: center;
+    justify-content: center;
+  }
+  .ws-clove-right {
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 620px) {
   .hero-top {
     padding: 32px 20px;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero-text {
+    max-width: 100%;
   }
   .hero-text h1 {
     font-size: 28px;
+  }
+  .hero-image {
+    max-width: 280px;
+  }
+  .hero-image img {
+    height: 260px;
+  }
+  .hero-form {
+    padding: 32px 18px 40px;
+  }
+  .hero-form-question {
+    font-size: 18px;
+  }
+  .ws-clove p {
+    font-size: 16px;
+  }
+  .ws-dream-text h2 {
+    font-size: 26px;
+  }
+  .ws-price-card {
+    padding: 24px 22px;
+  }
+  .ws-price-card h3 {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-input-row {
+    flex-direction: column;
+  }
+  .hero-input-group,
+  .hero-cta {
+    width: 100%;
+    flex: 1 1 auto;
   }
 }

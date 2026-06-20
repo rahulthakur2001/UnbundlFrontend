@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./HeroSection.css";
 import Header from "./Header";
 import banner from "../../images/banner.png";
-import Result from "./Result";
+import alignerCase from "../../images/d14528a1e9e28b2f472900fc2658a64a1c97983c.png";
 
 export default function HeroSection() {
   const [gap, setGap] = useState("");
@@ -134,7 +134,11 @@ export default function HeroSection() {
             </p>
           </div>
           <div className="ws-price-card">
-            <div className="ws-aligner-graphic" />
+            <img
+              className="ws-aligner-graphic"
+              src={alignerCase}
+              alt="Whistle aligner case"
+            />
             <h3>Whistle Aligners</h3>
             <div className="ws-price-old">₹84,000</div>
             <div className="ws-price-row">
@@ -153,8 +157,6 @@ export default function HeroSection() {
             </a>
           </div>
         </div>
-
-        <Result/>
       </div>
     </div>
   );

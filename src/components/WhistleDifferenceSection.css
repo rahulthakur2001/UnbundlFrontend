@@ -1,0 +1,79 @@
+.ws-diff {
+  background: var(--blue-pale);
+}
+
+.ws-diff .ws-inner {
+  display: flex;
+  gap: 28px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.ws-diff-card {
+  flex: 1 1 380px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.ws-diff-card h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.ws-diff-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ws-diff-item:last-child {
+  margin-bottom: 0;
+}
+
+.ws-diff-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1.5px solid #d8d4ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ink);
+}
+
+.ws-diff-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.ws-diff-item p {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.ws-diff-img {
+  flex: 1 1 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.ws-diff-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 620px) {
+  .ws-diff-card {
+    padding: 24px;
+  }
+  .ws-diff-img {
+    min-height: 220px;
+  }
+}
