@@ -1,12 +1,120 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./HeroSection.css";
 import Header from "./Header";
 import banner from "../../images/banner.png";
 import alignerCase from "../../images/d14528a1e9e28b2f472900fc2658a64a1c97983c.png";
 
+const CITIES = [
+  "Delhi NCR",
+  "Mumbai",
+  "Bengaluru",
+  "Hyderabad",
+  "Pune",
+  "Chennai",
+];
+
+const CLINICS_BY_CITY = {
+  "Delhi NCR": [
+    "Clove Dental - Rajouri Garden",
+    "Clove Dental - Janakpuri",
+    "Clove Dental - Saket",
+  ],
+  Mumbai: [
+    "Clove Dental - Andheri West",
+    "Clove Dental - Powai",
+    "Clove Dental - Bandra",
+  ],
+  Bengaluru: [
+    "Clove Dental - Koramangala",
+    "Clove Dental - Indiranagar",
+    "Clove Dental - Whitefield",
+  ],
+  Hyderabad: ["Clove Dental - Banjara Hills", "Clove Dental - Gachibowli"],
+  Pune: ["Clove Dental - Kothrud", "Clove Dental - Viman Nagar"],
+  Chennai: ["Clove Dental - Adyar", "Clove Dental - Anna Nagar"],
+};
+
+function Dropdown({ label, value, options, onSelect, disabled, placeholder }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className="ws-dd" ref={ref}>
+      <button
+        type="button"
+        className={
+          "ws-dd-trigger" + (disabled ? " ws-dd-trigger--disabled" : "")
+        }
+        onClick={() => !disabled && setOpen((o) => !o)}
+        disabled={disabled}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span className={value ? "ws-dd-value" : "ws-dd-placeholder"}>
+          {value || placeholder}
+        </span>
+        <span className={"ws-dd-caret" + (open ? " ws-dd-caret--open" : "")}>
+          ⌄
+        </span>
+      </button>
+
+      {open && (
+        <ul className="ws-dd-menu" role="listbox">
+          {options.length === 0 ? (
+            <li className="ws-dd-empty">No options available</li>
+          ) : (
+            options.map((opt) => (
+              <li
+                key={opt}
+                role="option"
+                aria-selected={opt === value}
+                className={
+                  "ws-dd-item" + (opt === value ? " ws-dd-item--selected" : "")
+                }
+                onClick={() => {
+                  onSelect(opt);
+                  setOpen(false);
+                }}
+              >
+                {opt}
+              </li>
+            ))
+          )}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 export default function HeroSection() {
   const [gap, setGap] = useState("");
   const [consent, setConsent] = useState(false);
+
+  const [city, setCity] = useState("");
+  const [clinic, setClinic] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [captcha, setCaptcha] = useState("");
+
+  const clinicOptions = city ? CLINICS_BY_CITY[city] || [] : [];
+
+  function handleCitySelect(selected) {
+    setCity(selected);
+    setClinic("");
+  }
+
+  function handleSubmit() {
+    console.log({ mobile, captcha, city, clinic });
+  }
 
   return (
     <div>
@@ -94,6 +202,54 @@ export default function HeroSection() {
             <a className="ws-clove-find" href="#clinics">
               Find Clinic ⌄
             </a>
+          </div>
+        </div>
+
+        <div className="ws-clove-form">
+          <div className="ws-clove-row">
+            <div className="ws-input ws-input--phone">
+              <span className="ws-input-prefix">+91</span>
+              <input
+                type="tel"
+                placeholder="Mobile number*"
+                value={mobile}
+                onChange={(e) =>
+                  setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))
+                }
+              />
+            </div>
+
+            <div className="ws-input">
+              <input
+                type="text"
+                placeholder="Enter Captcha"
+                value={captcha}
+                onChange={(e) => setCaptcha(e.target.value)}
+              />
+            </div>
+
+            <div className="ws-captcha-box">234</div>
+          </div>
+
+          <div className="ws-clove-row">
+            <Dropdown
+              placeholder="Select City"
+              value={city}
+              options={CITIES}
+              onSelect={handleCitySelect}
+            />
+
+            <Dropdown
+              placeholder="Select Clinic"
+              value={clinic}
+              options={clinicOptions}
+              onSelect={setClinic}
+              disabled={!city}
+            />
+
+            <button type="button" className="ws-submit" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </div>
       </div>
